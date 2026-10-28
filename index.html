@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schülerseite – Schulportal</title>
+    <meta name="description" content="Zentrale Schülerseite mit Stundenplan, Kalender, Notizen, Karteikarten, To-dos, Dateien und KI." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <div class="brand-icon">S</div>
+          <div>
+            <div class="brand-title">Schülerseite</div>
+            <div class="brand-subtitle">Campus</div>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Hauptnavigation">
+          <button class="nav-item active" data-target="overview">
+            <span class="nav-icon">⌂</span>
+            <span>Übersicht</span>
+          </button>
+          <button class="nav-item" data-target="portal">
+            <span class="nav-icon">▣</span>
+            <span>Schulportal</span>
+          </button>
+          <button class="nav-item" data-target="timetable">
+            <span class="nav-icon">◫</span>
+            <span>Stundenplan</span>
+          </button>
+          <button class="nav-item" data-target="calendar">
+            <span class="nav-icon">◫</span>
+            <span>Kalender</span>
+          </button>
+          <button class="nav-item" data-target="notes">
+            <span class="nav-icon">✎</span>
+            <span>Notizen</span>
+          </button>
+          <button class="nav-item" data-target="flashcards">
+            <span class="nav-icon">⇄</span>
+            <span>Karteikarten</span>
+          </button>
+          <button class="nav-item" data-target="files">
+            <span class="nav-icon">▤</span>
+            <span>Dateien</span>
+          </button>
+          <button class="nav-item" data-target="tasks">
+            <span class="nav-icon">✓</span>
+            <span>Todos</span>
+          </button>
+          <button class="nav-item" data-target="ai">
+            <span class="nav-icon">✦</span>
+            <span>KI</span>
+          </button>
+        </nav>
+
+        <div class="mini-profile">
+          <div class="avatar">AB</div>
+          <div>
+            <div class="profile-name">Anna B.</div>
+            <div class="profile-class">10b • Informatik</div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Willkommen zurück</p>
+            <h1 id="pageTitle">Übersicht</h1>
+          </div>
+
+          <div class="topbar-actions">
+            <button class="ghost-btn">+ Aufgabe</button>
+            <button class="primary-btn">Lernblock starten</button>
+          </div>
+        </header>
+
+        <section class="page-section active" id="overview">
+          <div class="stats-grid">
+            <article class="stat-card accent-blue">
+              <div class="stat-label">Heute</div>
+              <div class="stat-value">6</div>
+              <div class="stat-meta">Unterrichtsstunden</div>
+            </article>
+            <article class="stat-card accent-green">
+              <div class="stat-label">Hausaufgaben</div>
+              <div class="stat-value">3</div>
+              <div class="stat-meta">Noch offen</div>
+            </article>
+            <article class="stat-card accent-yellow">
+              <div class="stat-label">Lernzeit</div>
+              <div class="stat-value">90</div>
+              <div class="stat-meta">Minuten heute</div>
+            </article>
+            <article class="stat-card accent-pink">
+              <div class="stat-label">Notendurchschnitt</div>
+              <div class="stat-value">2,1</div>
+              <div class="stat-meta">Letzte Woche</div>
+            </article>
+          </div>
+
+          <div class="content-grid two-col">
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Zentrale Ansicht</p>
+                  <h2>WebUntis & Schulportal</h2>
+                </div>
+                <div class="chip chip-blue">Live</div>
+              </div>
+
+              <div class="portal-tabs">
+                <button class="portal-tab active" data-portal-tab="webuntis">WebUntis</button>
+                <button class="portal-tab" data-portal-tab="schulportal">Schulportal</button>
+                <button class="portal-tab" data-portal-tab="nachrichten">Nachrichten</button>
+              </div>
+
+              <div class="portal-panel active" id="webuntis">
+                <div class="lesson-list">
+                  <div class="lesson-row">
+                    <div class="time">08:15</div>
+                    <div class="lesson-body">
+                      <h3>Mathematik</h3>
+                      <p>Funktionen • Raum 204</p>
+                    </div>
+                    <span class="tag">1. Stunde</span>
+                  </div>
+                  <div class="lesson-row">
+                    <div class="time">09:25</div>
+                    <div class="lesson-body">
+                      <h3>Deutsch</h3>
+                      <p>Interpretation • Raum 112</p>
+                    </div>
+                    <span class="tag alt">2. Stunde</span>
+                  </div>
+                  <div class="lesson-row">
+                    <div class="time">10:40</div>
+                    <div class="lesson-body">
+                      <h3>Biologie</h3>
+                      <p>Praktikum • Labor</p>
+                    </div>
+                    <span class="tag warning">3. Stunde</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="portal-panel" id="schulportal">
+                <ul class="portal-list">
+                  <li><strong>Neue Aufgabe:</strong> Präsentation in Informatik bis Freitag</li>
+                  <li><strong>Hausaufgabe:</strong> Lektüre „Die Verwandlung“ lesen</li>
+                  <li><strong>Mitteilung:</strong> Sportfest am Mittwoch</li>
+                </ul>
+              </div>
+
+              <div class="portal-panel" id="nachrichten">
+                <ul class="portal-list">
+                  <li><strong>Schulleitung:</strong> Elternabend verschoben</li>
+                  <li><strong>Klassenchat:</strong> 3 neue Fotos in der Gruppe</li>
+                  <li><strong>Bibliothek:</strong> Rückgabe bis Freitag</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Lernfortschritt</p>
+                  <h2>Heutiger Fokus</h2>
+                </div>
+              </div>
+
+              <div class="progress-stack">
+                <div class="progress-item">
+                  <div class="progress-meta">
+                    <span>Mathe</span>
+                    <span>82%</span>
+                  </div>
+                  <div class="progress-bar"><span style="width:82%"></span></div>
+                </div>
+                <div class="progress-item">
+                  <div class="progress-meta">
+                    <span>Deutsch</span>
+                    <span>67%</span>
+                  </div>
+                  <div class="progress-bar"><span style="width:67%"></span></div>
+                </div>
+                <div class="progress-item">
+                  <div class="progress-meta">
+                    <span>Biologie</span>
+                    <span>91%</span>
+                  </div>
+                  <div class="progress-bar"><span style="width:91%"></span></div>
+                </div>
+                <div class="progress-item">
+                  <div class="progress-meta">
+                    <span>Englisch</span>
+                    <span>74%</span>
+                  </div>
+                  <div class="progress-bar"><span style="width:74%"></span></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section" id="portal">
+          <div class="panel wide-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Zentrale Schulumgebung</p>
+                <h2>Schulportal-Übersicht</h2>
+              </div>
+            </div>
+
+            <div class="portal-cards">
+              <div class="mini-card">
+                <span>WebUntis</span>
+                <strong>Stundenplan</strong>
+                <small>Aktuell synchronisiert</small>
+              </div>
+              <div class="mini-card">
+                <span>Schulportal</span>
+                <strong>Mitteilungen</strong>
+                <small>7 neue Infos</small>
+              </div>
+              <div class="mini-card">
+                <span>Noten</span>
+                <strong>Zeugnisse</strong>
+                <small>Verfügbar & geprüft</small>
+              </div>
+              <div class="mini-card">
+                <span>Materialien</span>
+                <strong>Unterlagen</strong>
+                <small>14 Dateien</small>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="timetable">
+          <div class="panel wide-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Planung</p>
+                <h2>Stundenplan</h2>
+              </div>
+            </div>
+
+            <div class="timetable-grid">
+              <div class="day-column">
+                <div class="day-header">Montag</div>
+                <div class="slot"><span>08:15</span><div><strong>Mathe</strong><small>204</small></div></div>
+                <div class="slot"><span>09:25</span><div><strong>Deutsch</strong><small>112</small></div></div>
+                <div class="slot"><span>10:40</span><div><strong>Biologie</strong><small>Labor</small></div></div>
+              </div>
+              <div class="day-column">
+                <div class="day-header">Dienstag</div>
+                <div class="slot"><span>08:15</span><div><strong>Englisch</strong><small>212</small></div></div>
+                <div class="slot"><span>09:25</span><div><strong>Physik</strong><small>301</small></div></div>
+                <div class="slot"><span>10:40</span><div><strong>Informatik</strong><small>Lab 1</small></div></div>
+              </div>
+              <div class="day-column">
+                <div class="day-header">Mittwoch</div>
+                <div class="slot"><span>08:15</span><div><strong>Chemie</strong><small>320</small></div></div>
+                <div class="slot"><span>09:25</span><div><strong>Sport</strong><small>Halle</small></div></div>
+                <div class="slot"><span>10:40</span><div><strong>Geschichte</strong><small>118</small></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="calendar">
+          <div class="panel wide-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Organisation</p>
+                <h2>Kalender</h2>
+              </div>
+            </div>
+
+            <div class="calendar-wrapper">
+              <div class="calendar-month">
+                <div class="month-header">Oktober 2026</div>
+                <div class="calendar-grid">
+                  <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
+                  <span class="muted">28</span><span class="muted">29</span><span class="muted">30</span><span>1</span><span>2</span><span>3</span><span>4</span>
+                  <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+                  <span>12</span><span>13</span><span class="event">14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+                  <span>19</span><span>20</span><span>21</span><span class="event">22</span><span>23</span><span>24</span><span>25</span>
+                  <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span class="muted">1</span>
+                </div>
+              </div>
+
+              <div class="upcoming-list">
+                <h3>Termine</h3>
+                <div class="event-item">
+                  <div class="dot blue"></div>
+                  <div>
+                    <strong>Biologietest</strong>
+                    <small>14. Okt • 09:00</small>
+                  </div>
+                </div>
+                <div class="event-item">
+                  <div class="dot green"></div>
+                  <div>
+                    <strong>Präsentation</strong>
+                    <small>22. Okt • 11:45</small>
+                  </div>
+                </div>
+                <div class="event-item">
+                  <div class="dot pink"></div>
+                  <div>
+                    <strong>Sportfest</strong>
+                    <small>28. Okt • 12:00</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="notes">
+          <div class="panel wide-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Ideensammlung</p>
+                <h2>Notizen</h2>
+              </div>
+            </div>
+
+            <div class="notes-layout">
+              <form id="noteForm" class="note-form">
+                <input id="noteTitle" type="text" placeholder="Titel" />
+                <textarea id="noteText" rows="5" placeholder="Notiz schreiben…"></textarea>
+                <button type="submit" class="primary-btn">Speichern</button>
+              </form>
+
+              <div id="notesList" class="notes-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="flashcards">
+          <div class="panel wide-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Wiederholung</p>
+                <h2>Karteikarten</h2>
+              </div>
+            </div>
+
+            <div class="flashcard-wrap">
+              <div class="flashcard" id="flashcard">
+                <div class="flashcard-inner">
+                  <div class="flashcard-face front">
+                    <span>Frage</span>
+                    <h3>Was ist eine Funktion in der Mathematik?</h3>
+                  </div>
+                  <div class="flashcard-face back">
+                    <span>Antwort</span>
+                    <p>Eine Funktion ordnet jedem Eingangswert genau einen Ausgangswert zu.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flashcard-actions">
+                <button id="flipCard" class="primary-btn">Karte drehen</button>
+                <button id="nextCard" class="ghost-btn">Nächste Karte</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="files">
+          <div class="panel wide-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Materialien</p>
+                <h2>Dateien</h2>
+              </div>
+            </div>
+
+            <div class="file-grid">
+              <div class="file-item">
+                <div class="file-icon pdf">PDF</div>
+                <div>
+                  <strong>Deutsch-Lektüre</strong>
+                  <small>2.4 MB</small>
+                </div>
+              </div>
+              <div class="file-item">
+                <div class="file-icon doc">DOC</div>
+                <div>
+                  <strong>Biologie-Notizen</strong>
+                  <small>760 KB</small>
+                </div>
+              </div>
+              <div class="file-item">
+                <div class="file-icon xls">XLS</div>
+                <div>
+                  <strong>Mathe-Übung</strong>
+                  <small>180 KB</small>
+                </div>
+              </div>
+              <div class="file-item">
+                <div class="file-icon ppt">PPT</div>
+                <div>
+                  <strong>Präsentation</strong>
+                  <small>1.8 MB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="tasks">
+          <div class="panel wide-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Organisieren</p>
+                <h2>To-dos</h2>
+              </div>
+            </div>
+
+            <div class="todo-layout">
+              <form id="todoForm" class="todo-form">
+                <input id="todoInput" type="text" placeholder="Neue Aufgabe…" />
+                <button type="submit" class="primary-btn">Hinzufügen</button>
+              </form>
+              <ul id="todoList" class="todo-list"></ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="ai">
+          <div class="panel wide-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Hilfsassistent</p>
+                <h2>KI Lerncoach</h2>
+              </div>
+            </div>
+
+            <div class="chat-box">
+              <div class="message bot">
+                Hallo! Ich kann dir bei Prüfungsfragen, Lernplanung und Aufgaben helfen.
+              </div>
+              <div class="message user">Bitte erstelle mir einen Fokusplan für heute.</div>
+              <div class="message bot">
+                1. 20 min Mathe • Wiederholung von Funktionen<br />2. 15 min Deutsch • Textanalyse<br />3. 30 min Biologie • Lernkarteien<br />4. 15 min Aufgaben kontrollieren
+              </div>
+            </div>
+
+            <div class="ai-input-row">
+              <input type="text" placeholder="Frage an die KI eingeben…" />
+              <button class="primary-btn">Senden</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
